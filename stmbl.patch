@@ -1,0 +1,71 @@
+--- stmbl.c.oryg	2012-06-13 15:01:49.000000000 +0200
++++ stmbl.c	2012-06-13 15:12:51.000000000 +0200
+@@ -127,7 +127,7 @@
+ int stmblRecv(uint8_t* buf, unsigned int size)
+ {
+ 	int rsize = 0;
+-	int rval, i;
++	int rval;
+ 	
+ 	while( rsize < size ) {
+ 		// Look whether there are still pending bytes in the buffer
+@@ -210,6 +210,7 @@
+ 
+ int stmblGetVersionNprotection()
+ {
++	return 0;
+ }
+ 
+ 
+@@ -236,7 +237,6 @@
+ 		address & 0xFF
+ 	};
+ 	int rval;
+-	int i;
+ 
+ 	if (size > 256) return STMBL_ERR_SIZE;
+ 	if (!stmblCmdAvail(0x11)) return STMBL_ERR_INVALIDCMD;
+@@ -308,19 +308,23 @@
+ 
+ int stmblWriteProtect()
+ {
++	return 0;
+ }
+ 
+ 
+ int stmblWriteUnprotect()
+ {
++	return 0;
+ }
+ 
+ 
+ int stmblReadoutProtect()
+ {
++	return 0;
+ }
+ 
+ 
+ int stmblReadoutUnprotect()
+ {
++	return 0;
+ }
+--- Makefile~	2012-06-13 15:17:22.000000000 +0200
++++ Makefile	2012-06-13 15:17:22.000000000 +0200
+@@ -10,7 +10,7 @@
+ 	LIBS	=
+ 
+ 	CFLAGS	= -Wall -g
+-
++DESTDIR=/usr/local/bin
+ 
+ # Do the stuff as specified above.
+ all:	armst
+@@ -19,7 +19,7 @@
+ 	$(CC) -o $@ $(CFLAGS) $(OBJ) $(LIBS)
+ 
+ install: armst
+-	install armst /usr/local/bin
++	install -p armst $(DESTDIR)
+ 
+ clean:
+ 	rm *~ *.o
