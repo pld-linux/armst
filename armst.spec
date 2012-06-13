@@ -27,7 +27,7 @@ szeregowy RS-232.
 %{__make} \
 	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags} %{rpmcppflags}" \
-	LDFLAGS="%{rpmldflags}"
+	LIBS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
