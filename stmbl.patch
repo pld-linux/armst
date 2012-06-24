@@ -1,5 +1,14 @@
 --- stmbl.c.oryg	2012-06-13 15:01:49.000000000 +0200
 +++ stmbl.c	2012-06-13 15:12:51.000000000 +0200
+@@ -118,7 +118,7 @@
+ 	printf(" chk = %x\n", checksum);
+ #endif
+ 	// send stream
+-	write(stmbl.device, &prefix_byte, 1);
++	rval = write(stmbl.device, &prefix_byte, 1);
+ 	rval = write(stmbl.device, buf, size);
+ 	return rval + write(stmbl.device, &checksum, 1);
+ }
 @@ -127,7 +127,7 @@
  int stmblRecv(uint8_t* buf, unsigned int size)
  {
