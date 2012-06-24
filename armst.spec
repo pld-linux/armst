@@ -1,4 +1,5 @@
 Summary:	ST ARM-CortexM3 Linux RS-232 Loader
+Summary(pl.UTF-8):	Programator RS-232 dla ST ARM-CortexM3 
 Name:		armst
 Version:	1.20
 Release:	1
@@ -15,9 +16,8 @@ The ARMst utility is a command line tool for flashing the ST
 ARM-CortexM3 family via the standard RS-232 port.
 
 %description -l pl.UTF-8
-Narzędzie ARMst jest uruchamialnym z konsoli narzędziem do zapisywania
-w pamięci mikrokontrolerów ST ARM Cortex-M3 przez standartowy port
-szeregowy RS-232.
+ARMst jest narzędziem konsolowym do programowania pamięci flash
+mikrokontrolerów ST ARM Cortex-M3 przy użyciu portu RS-232.
 
 %prep
 %setup -n ARMst -q
