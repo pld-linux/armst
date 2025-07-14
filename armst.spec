@@ -21,7 +21,7 @@ mikrokontrolerów ST ARM Cortex-M3 przy użyciu portu RS-232.
 
 %prep
 %setup -n ARMst -q
-%patch0 -p0
+%patch -P0 -p0
 
 %build
 %{__make} \
